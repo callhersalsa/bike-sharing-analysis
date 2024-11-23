@@ -42,9 +42,6 @@ day_filtered = day_df[(day_df["date"] >= str(start_date)) & (day_df["date"] <= s
 hour_filtered = hour_df[(hour_df['date'] >= str(start_date)) & (hour_df['date'] <= str(end_date))]
 daily_users_df = create_daily_users_df(day_filtered)
 
-day_filtered['season'] = day_filtered['season'].astype('category')
-day_filtered['weathersit'] = day_filtered['weathersit'].astype('category')
-
 # Header Dashboard
 st.header('Bike Sharing Dashboard :bicyclist:')
 st.subheader('Daily Rent')
@@ -121,8 +118,8 @@ with col2:
     st.markdown("<h4 style='font-size: 20px; text-align: center;'>Total Rent Distribution by Season and Weather</h4>", unsafe_allow_html=True)
 
     # Calculate rental counts based on filtered data
-    rental_counts['season'] = rental_counts['season'].astype('category')
-    rental_counts['weathersit'] = rental_counts['weathersit'].astype('category')
+    day_filtered['season'] = day_filtered['season'].astype('category')
+    day_filtered['weathersit'] = day_filtered['weathersit'].astype('category')
     rental_counts = day_filtered.groupby(['season', 'weathersit']).agg({
         'user_counts': 'sum'
     })
