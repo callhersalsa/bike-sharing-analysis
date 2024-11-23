@@ -10,7 +10,7 @@ day_df = pd.read_csv("dashboard/day_df.csv")
 hour_df = pd.read_csv("dashboard/hour_df.csv")
 
 def create_daily_users_df(df):
-    daily_users_df = df.resample(rule='D', on='datetime').agg({
+    daily_users_df = df.resample(rule='D', on='date').agg({
         "casual_users": "sum",
         "registered_users": "sum",
     })
@@ -26,11 +26,11 @@ def create_daily_users_df(df):
     return daily_users_df
 
 # Konversi kolom datetime
-day_df["datetime"] = pd.to_datetime(day_df["date"])
-hour_df["datetime"] = pd.to_datetime(hour_df["date"])
+day_df["date"] = pd.to_datetime(day_df["date"])
+hour_df["date"] = pd.to_datetime(hour_df["date"])
 
-min_date = day_df["datetime"].min()
-max_date = day_df["datetime"].max()
+min_date = day_df["date"].min()
+max_date = day_df["date"].max()
 
 with st.sidebar:
     st.image("dashboard/image.jpg")
@@ -38,8 +38,8 @@ with st.sidebar:
         label='Date', min_value=min_date, max_value=max_date, value=[min_date, max_date]
     )
 
-day_filtered = day_df[(day_df["datetime"] >= str(start_date)) & (day_df["datetime"] <= str(end_date))]
-hour_filtered = hour_df[(hour_df['datetime'] >= str(start_date)) & (hour_df['datetime'] <= str(end_date))]
+day_filtered = day_df[(day_df["date"] >= str(start_date)) & (day_df["date"] <= str(end_date))]
+hour_filtered = hour_df[(hour_df['date'] >= str(start_date)) & (hour_df['date'] <= str(end_date))]
 daily_users_df = create_daily_users_df(day_filtered)
 
 # Header Dashboard
@@ -67,8 +67,8 @@ with col3:
 fig, ax = plt.subplots(figsize=(16, 8))
 
 # Plot the lines untuk registered dan casual users
-ax.plot(daily_users_df["datetime"], daily_users_df["total_registered_users"], marker='o', linewidth=2, color="navy", label="Registered Users")
-ax.plot(daily_users_df["datetime"], daily_users_df["total_casual_users"], marker='o', linewidth=2, color="violet", label="Casual Users")
+ax.plot(daily_users_df["date"], daily_users_df["total_registered_users"], marker='o', linewidth=2, color="navy", label="Registered Users")
+ax.plot(daily_users_df["date"], daily_users_df["total_casual_users"], marker='o', linewidth=2, color="violet", label="Casual Users")
 
 
 # LINE VISUALIZATION KE 2
