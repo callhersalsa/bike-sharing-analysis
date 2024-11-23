@@ -6,8 +6,8 @@ from matplotlib import colors as mcolors
 
 sns.set(style='dark')
 
-day_df = pd.read_csv("dashboard\\day_df.csv")
-hour_df = pd.read_csv("dashboard\\hour_df.csv")
+day_df = pd.read_csv("dashboard/day_df.csv")
+hour_df = pd.read_csv("dashboard/hour_df.csv")
 
 def create_daily_users_df(df):
     daily_users_df = df.resample(rule='D', on='datetime').agg({
