@@ -178,3 +178,5 @@ plt.yticks(fontsize=15)
 plt.xlabel('Jam', fontsize=15)
 plt.ylabel('Hari dalam Seminggu', fontsize=15)
 st.pyplot(plt)
+
+st.caption('Copyright © Salsabila Syahirah 2024 www.linkedin.com/in/salsabilasyahirah')
