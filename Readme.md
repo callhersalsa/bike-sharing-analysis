@@ -1,4 +1,4 @@
-# Dicoding Collection Dashboard ✨
+# Cara Menjalankan Bike Sharing Dashboard :bicyclist:
 
 ## Setup Environment - Anaconda
 ```
@@ -21,8 +21,13 @@ pip install -r requirements.txt
 streamlit run dashboard.py
 ```
 
+## Link dashboard
+```
+https://bikesharinganalysisproject.streamlit.app/
+```
+
 ==========================================
-Bike Sharing Dataset
+Dataset Info
 ==========================================
 
 Hadi Fanaee-T
