@@ -124,6 +124,8 @@ with col2:
     rental_counts = day_filtered.groupby(['season', 'weathersit']).agg({
         'user_counts': 'sum'
     })
+    rental_counts['season'] = rental_counts['season'].astype('category')
+    rental_counts['weathersit'] = rental_counts['weathersit'].astype('category')
     max_value = rental_counts['user_counts'].max()
 
     # Tentukan batas atas sumbu y dengan memberikan ruang tambahan
