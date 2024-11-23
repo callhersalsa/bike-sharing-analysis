@@ -118,8 +118,6 @@ with col2:
     st.markdown("<h4 style='font-size: 20px; text-align: center;'>Total Rent Distribution by Season and Weather</h4>", unsafe_allow_html=True)
 
     # Calculate rental counts based on filtered data
-    day_filtered['season'] = day_filtered['season'].astype('category')
-    day_filtered['weathersit'] = day_filtered['weathersit'].astype('category')
     rental_counts = day_filtered.groupby(['season', 'weathersit']).agg({
         'user_counts': 'sum'
     })
