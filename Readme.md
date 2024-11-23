@@ -1,8 +1,11 @@
 # Cara Menjalankan Bike Sharing Dashboard :bicyclist:
 
+**Persyaratan:**
+* Python 3.10 atau yang lebih baru
+
 ## Setup Environment - Anaconda
 ```
-conda create --name main-ds python=3.9
+conda create --name main-ds python=3.10
 conda activate main-ds
 pip install -r requirements.txt
 ```
@@ -12,6 +15,7 @@ pip install -r requirements.txt
 mkdir proyek_analisis_data
 cd proyek_analisis_data
 pipenv install
+pipenv --python 3.10
 pipenv shell
 pip install -r requirements.txt
 ```
