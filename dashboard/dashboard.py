@@ -33,7 +33,7 @@ min_date = day_df["datetime"].min()
 max_date = day_df["datetime"].max()
 
 with st.sidebar:
-    st.image("dashboard\\image.jpg")
+    st.image("dashboard/image.jpg")
     start_date, end_date = st.date_input(
         label='Date', min_value=min_date, max_value=max_date, value=[min_date, max_date]
     )
